@@ -15,7 +15,7 @@
 	<name>paymentservice</name>
 	<description>Payment service</description>
 	<properties>
-		<java.version>16</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -31,6 +31,12 @@
 			<groupId>org.axonframework</groupId>
 			<artifactId>axon-spring-boot-starter</artifactId>
 			<version>4.4.5</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb -->
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-dynamodb</artifactId>
+			<version>1.12.99</version>
 		</dependency>
 		<dependency>
 			<groupId>com.appsdeveloperblog.estore</groupId>
