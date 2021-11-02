@@ -7,10 +7,7 @@ import javax.validation.Valid;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +17,9 @@ import com.appsdeveloperblog.estore.ProductsService.command.CreateProductCommand
 @RestController
 @RequestMapping("/products")
 public class ProductsCommandController {
+	
+	@Autowired
+	private CreateProductRepository createProductRepository;
 	
 	private final Environment env;
 	private final CommandGateway commandGateway;
@@ -31,12 +31,12 @@ public class ProductsCommandController {
 	}
 	
 	@PostMapping
-	public String createProduct(@Valid @RequestBody CreateProductRestModel createProductRestModel) {
+	public String createProduct(@Valid @RequestBody CreateProductRestModel createProducts) {
 		
 		CreateProductCommand createProductCommand = CreateProductCommand.builder()
-		.price(createProductRestModel.getPrice())
-		.quantity(createProductRestModel.getQuantity())
-		.title(createProductRestModel.getTitle())
+		.price(createProducts.getPrice())
+		.quantity(createProducts.getQuantity())
+		.title(createProducts.getTitle())
 		.productId(UUID.randomUUID().toString()).build();
 		
 		String returnValue;
@@ -48,23 +48,10 @@ public class ProductsCommandController {
 //		} catch (Exception ex) {
 //			return returnValue = ex.getLocalizedMessage();
 //		}
-		return returnValue;
+		createProductRepository.save(createProductCommand);
 		
+		return returnValue;
 	}
 	
-//	@GetMapping
-//	public String getProduct() {
-//		return "HTTP GET Handled " + env.getProperty("local.server.port");
-//	}
-//	
-//	@PutMapping
-//	public String updateProduct() {
-//		return "HTTP PUT Handled";
-//	}
-//	
-//	@DeleteMapping
-//	public String deleteProduct() {
-//		return "HTTP DELETE handled";
-//	}
 	
 }
