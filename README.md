@@ -21,3 +21,24 @@ In addition, this project integrates the Axon Framework to manage visually track
 
 ![axondashboard](https://user-images.githubusercontent.com/84652073/138995327-fd535fcd-c0a9-49c3-86a8-982170f7cd80.JPG)
 
+In terms of deployment, I employed AWS Elastic Beanstalk, as well as implemented AWS DynamoDB for the NoSQL databases for the Product, Payment, and Order Microservices. In regards to E-Commerce applications and Event-Driven archetictures, it is most suitable and flexible to utilize non-relational databases (AWS DynamoDB) because it allows more versatility to access certain collections of data by its "attributeName" and to input them into function calls for rendering communications between microservices.
+
+![Screen Shot 2021-11-01 at 9 19 23 PM](https://user-images.githubusercontent.com/84652073/139786309-19aee9b1-6486-4520-9eef-d0e3dccb6268.png)
+
+
+![Screen Shot 2021-11-01 at 7 27 54 PM](https://user-images.githubusercontent.com/84652073/139786354-463f9b4e-2880-4cd6-9f9e-6b3f87ed6f02.png)
+
+<img width="1362" alt="Screen Shot 2021-11-01 at 7 28 07 PM" src="https://user-images.githubusercontent.com/84652073/139786365-5442d09d-860b-4e83-8aff-b4ee68341ed8.png">
+
+
+![Screen Shot 2021-11-01 at 7 28 47 PM](https://user-images.githubusercontent.com/84652073/139786399-2573b773-7eb6-4d05-abe4-d6c6a2551649.png)
+
+
+
+<img width="1777" alt="Screen Shot 2021-11-01 at 7 35 26 PM" src="https://user-images.githubusercontent.com/84652073/139786478-f87a03aa-9000-4549-889d-4c191cc72463.png">
+
+
+
+
+
+
