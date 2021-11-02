@@ -5,6 +5,7 @@
  */
 package com.appsdeveloperblog.estore.OrdersService.command.rest;
 
+//import com.appsdeveloperblog.estore.OrdersService.core.data.OrderCreateRepository;
 import com.appsdeveloperblog.estore.OrdersService.core.model.OrderStatus;
 import com.appsdeveloperblog.estore.OrdersService.core.model.OrderSummary;
 import com.appsdeveloperblog.estore.OrdersService.query.FindOrderQuery;
@@ -25,12 +26,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/orders")
 public class OrdersCommandController {
 
+//	@Autowired
+//	private OrderCreateRepository orderCreateRepository;
+	
     private final CommandGateway commandGateway;
     private final QueryGateway queryGateway;
 
     @Autowired
-    public OrdersCommandController(CommandGateway commandGateway,
-    		QueryGateway queryGateway) {
+    public OrdersCommandController(CommandGateway commandGateway, QueryGateway queryGateway) {
         this.commandGateway = commandGateway;
         this.queryGateway = queryGateway;
     }
@@ -49,6 +52,8 @@ public class OrdersCommandController {
                 .orderId(orderId)
                 .orderStatus(OrderStatus.CREATED)
                 .build();
+        
+//        orderCreateRepository.save(createOrderCommand);
         
         SubscriptionQueryResult<OrderSummary, OrderSummary> queryResult = 
         		queryGateway.subscriptionQuery(new FindOrderQuery(orderId), 
